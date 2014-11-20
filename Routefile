@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+hosted_zone "example.com." do
+  rrset "www.example.com.", "A" do
+    ttl 300
+    resource_records(
+      "10.0.10.11",
+      "10.0.10.12"
+    )
+  end
+
+  rrset "example.com.", "MX" do
+    ttl 600
+    resource_records(
+      "10 mx.example.com",
+      "10 mx2.example.com"
+    )
+  end
+
+  rrset "example.com.", "A" do
+    dns_name "elb-0000000000.ap-northeast-1.elb.amazonaws.com"
+  end
+
+end

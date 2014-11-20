@@ -1,0 +1,14 @@
+machine:
+  environment:
+    AWS_ACCESS_KEY_ID: xxxxxxxxxxxx
+    AWS_SECRET_ACCESS_KEY: xxxxxxxxxxxxx
+
+test:
+  override:
+    - bundle exec roadwork -a --dry-run
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bundle exec roadwork -a
